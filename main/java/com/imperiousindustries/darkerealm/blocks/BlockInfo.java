@@ -13,4 +13,11 @@ public class BlockInfo {
 	
 	public static String COMPRESSEDDUSTBLOCK_NAME = "compressedDustBlock";
 	public static String COMPRESSEDDUSTBLOCK_TEXTURE = "CompressedDust";
+	
+	public static String MESTRONLOG_NAME = "mestronLog";
+	public static String MESTRONLOG_TOP_TEXTURE = "Mestron Log Top";
+	public static String MESTRONLOG_SIDE_TEXTURE = "Mestron Log Side";
+	
+	public static String MESTRONPLANK_NAME = "mestronPlanks";
+	public static String MESTRONPLANK_TEXTURE = "Mestron Planks";
 }

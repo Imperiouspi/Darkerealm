@@ -14,6 +14,8 @@ public class DarkeRecipes {
 		GameRegistry.addRecipe(new ItemStack(DarkeBlocks.compresseddust4), new Object[]{"ddd","ddd","ddd", 'd', new ItemStack(DarkeBlocks.compresseddust3)});
 		GameRegistry.addRecipe(new ItemStack(DarkeBlocks.compresseddust5), new Object[]{"ddd","ddd","ddd", 'd', new ItemStack(DarkeBlocks.compresseddust4)});
 		
+		GameRegistry.addShapelessRecipe(new ItemStack(DarkeBlocks.mestronplank, 4), new ItemStack(DarkeBlocks.mestronlog));
+		
 		GameRegistry.addSmelting(new ItemStack(DarkeBlocks.dust, 64), new ItemStack(DarkeItems.dustGem), 20);
 	}
 }
