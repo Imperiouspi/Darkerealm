@@ -9,6 +9,7 @@ tile.triplecompressedDustBlock.name=Triple Compressed Dust Block
 tile.quadruplecompressedDustBlock.name=Quadruple Compressed Dust Block
 tile.pentuplecompressedDustBlock.name=Pentuple Compressed Dust Block
 tile.mestronLog.name=Mestron Log
+tile.mestronLeaves.name=Mestron Leaves
 
 item.duster.name=Duster
 item.dustGem.name=Dust Gem

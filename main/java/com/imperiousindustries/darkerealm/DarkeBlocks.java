@@ -6,6 +6,7 @@ import com.imperiousindustries.darkerealm.blocks.BlockDarkeStone;
 import com.imperiousindustries.darkerealm.blocks.BlockDust;
 import com.imperiousindustries.darkerealm.blocks.BlockDustBlock;
 import com.imperiousindustries.darkerealm.blocks.BlockInfo;
+import com.imperiousindustries.darkerealm.blocks.BlockMestronLeaves;
 import com.imperiousindustries.darkerealm.blocks.BlockMestronPlank;
 import com.imperiousindustries.darkerealm.blocks.dustblocks.BlockDustBlockCompressed;
 import com.imperiousindustries.darkerealm.blocks.dustblocks.BlockDustBlockDouble;
@@ -27,6 +28,7 @@ public class DarkeBlocks {
 	public static Block compresseddust5;
 	public static Block mestronlog;
 	public static Block mestronplank;
+	public static Block mestronleaves;
 	
 	public static void initBlocks(){
 		darkeStone = new BlockDarkeStone();
@@ -49,5 +51,7 @@ public class DarkeBlocks {
 		GameRegistry.registerBlock(mestronlog, BlockInfo.MESTRONLOG_NAME);
 		mestronplank = new BlockMestronPlank();
 		GameRegistry.registerBlock(mestronplank, BlockInfo.MESTRONPLANK_NAME);
+		mestronleaves = new BlockMestronLeaves();
+		GameRegistry.registerBlock(mestronleaves, BlockInfo.MESTRONLEAVES_NAME);
 	}
 }
