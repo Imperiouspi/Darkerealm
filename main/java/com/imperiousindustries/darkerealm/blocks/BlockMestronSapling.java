@@ -27,19 +27,17 @@ public class BlockMestronSapling extends BlockSapling {
 
 	@Override
 	public void func_149878_d(World world, int x, int y, int z, Random rand) {
-		for (int i = 0; i < 5; i++) {
-			world.setBlock(x, y+i, z, DarkeBlocks.mestronlog);
+		int choice = (int)(Math.random()*4);
+		switch(choice){
+		case 0: genFive(world, x, y, z); break;
+		case 1: genTwo(world, x, y, z); break;
+		case 3: genSix(world, x, y, z); break;
 		}
-		world.setBlock(x, y+4, z+1, DarkeBlocks.mestronleaves);
-		world.setBlock(x+1, y+4, z, DarkeBlocks.mestronleaves);
-		world.setBlock(x-1, y+4, z, DarkeBlocks.mestronleaves);
-		world.setBlock(x, y+4, z-1, DarkeBlocks.mestronleaves);
-		world.setBlock(x, y+5, z, DarkeBlocks.mestronleaves);
 	}
 	
 	@Override
-	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_){
-		p_149666_3_.add(new ItemStack(p_149666_1_, 1, 0));
+	public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List list){
+		list.add(new ItemStack(p_149666_1_, 1, 0));
 	}
 	
 	@SideOnly(Side.CLIENT)
@@ -55,4 +53,65 @@ public class BlockMestronSapling extends BlockSapling {
     {
 		return blockIcon;
    }
+	
+	//generate a tree five blocks high
+	public void genFive(World world, int x, int y, int z){
+		//trunk
+		for (int i = 0; i < 5; i++) {
+			world.setBlock(x, y+i, z, DarkeBlocks.mestronlog);
+		}
+		//cap
+		world.setBlock(x, y+4, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+4, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+4, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+4, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+5, z, DarkeBlocks.mestronleaves);
+		
+		//second bottom layer
+		world.setBlock(x+1, y+2, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+2, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+1, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+1, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+1, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+1, z-1, DarkeBlocks.mestronleaves);
+		
+		//bottom cap
+		world.setBlock(x+1, y+1, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+1, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+1, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+1, z-1, DarkeBlocks.mestronleaves);
+	}
+
+	//generate a tree two blocks high
+	public void genTwo(World world, int x, int y, int z){
+		//trunk
+		for(int i = 0; i < 2; i++){
+			world.setBlock(x, y+i, z, DarkeBlocks.mestronlog);
+		}
+		//cap
+		world.setBlock(x+1, y+1, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+1, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+1, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+1, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z, DarkeBlocks.mestronleaves);
+	}
+
+	//generate a tree six blocks high
+	public void genSix(World world, int x, int y, int z){
+		genFive(world, x, y+1, z);
+		world.setBlock(x, y, z, DarkeBlocks.mestronlog);
+		//bottom cap
+		world.setBlock(x+1, y+1, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+1, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+1, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+1, z-1, DarkeBlocks.mestronleaves);
+		//third layer points
+		world.setBlock(x+2, y+2, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+2, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z-2, DarkeBlocks.mestronleaves);
+
+	}
 }
