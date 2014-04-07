@@ -1,12 +1,15 @@
 package com.imperiousindustries.darkerealm.blocks;
 
+import java.util.Random;
+
 import net.minecraft.block.BlockLeaves;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.item.Item;
 import net.minecraft.util.IIcon;
-import net.minecraft.world.ColorizerFoliage;
 import net.minecraft.world.IBlockAccess;
 
+import com.imperiousindustries.darkerealm.DarkeBlocks;
 import com.imperiousindustries.darkerealm.DarkeRealm;
 
 import cpw.mods.fml.relauncher.Side;
@@ -57,6 +60,11 @@ public class BlockMestronLeaves extends BlockLeaves{
 	{
 		 return 16777215;
 	}
+	
+	public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
+    {
+        return Item.getItemFromBlock(DarkeBlocks.mestronsapling);
+    }
 	
 	@Override
 	public String[] func_150125_e() {

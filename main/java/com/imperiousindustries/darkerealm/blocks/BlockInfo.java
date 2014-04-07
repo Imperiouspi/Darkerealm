@@ -24,4 +24,7 @@ public class BlockInfo {
 	public static String MESTRONLEAVES_NAME = "mestronLeaves";
 	public static String MESTRONLEAVES_TEXTURE_FANCY = "Mestron Leaves";
 	public static String MESTRONLEAVES_TEXTURE_FAST = "Fast Mestron Leaves";
+	
+	public static String MESTRONSAPLING_NAME = "mestronsapling";
+	public static String MESTRONSAPLING_TEXTURE = "Mestron Sapling";
 }

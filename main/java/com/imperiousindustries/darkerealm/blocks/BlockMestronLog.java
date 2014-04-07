@@ -1,4 +1,4 @@
-package com.imperiousindustries.darkerealm;
+package com.imperiousindustries.darkerealm.blocks;
 
 
 import net.minecraft.block.Block;
@@ -8,7 +8,7 @@ import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 
-import com.imperiousindustries.darkerealm.blocks.BlockInfo;
+import com.imperiousindustries.darkerealm.DarkeRealm;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
