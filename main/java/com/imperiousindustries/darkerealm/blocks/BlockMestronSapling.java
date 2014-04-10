@@ -27,11 +27,12 @@ public class BlockMestronSapling extends BlockSapling {
 
 	@Override
 	public void func_149878_d(World world, int x, int y, int z, Random rand) {
-		int choice = (int)(Math.random()*4);
+		int choice = (int)(Math.random()*5);
 		switch(choice){
-		case 0: genFive(world, x, y, z); break;
-		case 1: genTwo(world, x, y, z); break;
-		case 3: genSix(world, x, y, z); break;
+			case 0: genFive(world, x, y, z); break;
+			case 1: genTwo(world, x, y, z); break;
+			case 3: genSix(world, x, y, z); break;
+			case 4: genEleven(world, x, y, z); break;
 		}
 	}
 	
@@ -113,5 +114,98 @@ public class BlockMestronSapling extends BlockSapling {
 		world.setBlock(x, y+2, z+2, DarkeBlocks.mestronleaves);
 		world.setBlock(x, y+2, z-2, DarkeBlocks.mestronleaves);
 
+	}
+
+	//generate a tree ten blocks high
+	public void genEleven(World world, int x, int y, int z){
+		//trunk
+		for(int i = 0; i < 11; i++){
+			world.setBlock(x, y+i, z, DarkeBlocks.mestronlog);
+		}
+		// top cap
+		world.setBlock(x, y+10, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+10, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+10, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+10, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+11, z, DarkeBlocks.mestronleaves);
+		
+		//bottom cap
+		world.setBlock(x+1, y+2, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+2, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+2, z-1, DarkeBlocks.mestronleaves);
+		
+		//second bottom layer
+		//first square
+		world.setBlock(x+1, y+3, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+3, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+3, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+3, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+3, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+3, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+3, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+3, z-1, DarkeBlocks.mestronleaves);
+		//second square
+		world.setBlock(x+2, y+3, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+3, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+3, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+3, z-2, DarkeBlocks.mestronleaves);
+		world.setBlock(x+2, y+3, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+3, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+3, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+2, y+3, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+3, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+3, z-2, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+3, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+3, z-2, DarkeBlocks.mestronleaves);
+		//points
+		world.setBlock(x+3, y+3, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-3, y+3, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+3, z+3, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+3, z-3, DarkeBlocks.mestronleaves);
+		
+		//third layer
+		world.setBlock(x+2, y+4, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+4, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+4, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+4, z-2, DarkeBlocks.mestronleaves);
+		world.setBlock(x+2, y+4, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+4, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+4, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+2, y+4, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+4, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+4, z-2, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+4, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+4, z-2, DarkeBlocks.mestronleaves);
+		
+		//fourth layer
+		world.setBlock(x+1, y+5, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+5, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+5, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+5, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+5, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+5, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+5, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+5, z-1, DarkeBlocks.mestronleaves);
+		
+		//second middle layer
+		world.setBlock(x+2, y+7, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-2, y+7, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+7, z+2, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+7, z-2, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+7, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+7, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+7, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+7, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+7, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+7, z-1, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+7, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x+1, y+7, z-1, DarkeBlocks.mestronleaves);
+		
+		//middle cap
+		world.setBlock(x+1, y+8, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x-1, y+8, z, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+8, z+1, DarkeBlocks.mestronleaves);
+		world.setBlock(x, y+8, z-1, DarkeBlocks.mestronleaves);
 	}
 }
