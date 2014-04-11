@@ -11,6 +11,9 @@ tile.pentuplecompressedDustBlock.name=Pentuple Compressed Dust Block
 tile.mestronLog.name=Mestron Log
 tile.mestronLeaves.name=Mestron Leaves
 tile.mestronsapling.name=Mestron Sapling
+tile.abysmalfont.name=Abysmal Font
+tile.darkedirt.name=Darke Dirt
+
 item.duster.name=Duster
 item.dustGem.name=Dust Gem
 

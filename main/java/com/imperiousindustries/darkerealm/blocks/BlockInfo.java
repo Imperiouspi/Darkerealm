@@ -27,4 +27,10 @@ public class BlockInfo {
 	
 	public static String MESTRONSAPLING_NAME = "mestronsapling";
 	public static String MESTRONSAPLING_TEXTURE = "Mestron Sapling";
+	
+	public static String ABYSMALFONT_NAME = "abysmalfont";
+	public static String ABYSMALFONT_TEXTURE = "Abysmal Font";
+	
+	public static String DARKEDIRT_NAME	= "darkedirt";
+	public static String DARKEDIRT_TEXTURE = "Darke Dirt";
 }

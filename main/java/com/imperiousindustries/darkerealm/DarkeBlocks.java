@@ -2,6 +2,8 @@ package com.imperiousindustries.darkerealm;
 
 import net.minecraft.block.Block;
 
+import com.imperiousindustries.darkerealm.blocks.BlockAbysmalFont;
+import com.imperiousindustries.darkerealm.blocks.BlockDarkeDirt;
 import com.imperiousindustries.darkerealm.blocks.BlockDarkeStone;
 import com.imperiousindustries.darkerealm.blocks.BlockDust;
 import com.imperiousindustries.darkerealm.blocks.BlockDustBlock;
@@ -32,6 +34,8 @@ public class DarkeBlocks {
 	public static Block mestronplank;
 	public static Block mestronleaves;
 	public static Block mestronsapling;
+	public static Block abysmalfont;
+	public static Block darkedirt;
 	
 	public static void initBlocks(){
 		darkeStone = new BlockDarkeStone();
@@ -58,5 +62,9 @@ public class DarkeBlocks {
 		GameRegistry.registerBlock(mestronleaves, BlockInfo.MESTRONLEAVES_NAME);
 		mestronsapling = new BlockMestronSapling();
 		GameRegistry.registerBlock(mestronsapling, BlockInfo.MESTRONSAPLING_NAME);
+		abysmalfont = new BlockAbysmalFont();
+		GameRegistry.registerBlock(abysmalfont, BlockInfo.ABYSMALFONT_NAME);
+		darkedirt = new BlockDarkeDirt();
+		GameRegistry.registerBlock(darkedirt, BlockInfo.DARKEDIRT_NAME);
 	}
 }
