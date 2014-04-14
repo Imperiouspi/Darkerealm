@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Random;
 
 import com.imperiousindustries.darkerealm.DarkeBiomes;
+import com.imperiousindustries.darkerealm.DarkeBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
@@ -99,7 +100,7 @@ public class ChunkProviderDarkeWorld implements IChunkProvider
     /**
      * The biomes that are used to generate the chunk
      */
-    private BiomeGenBase[] biomesForGeneration = {DarkeBiomes.darkeForest};
+    private BiomeGenBase[] biomesForGeneration;
     double[] field_147427_d;
     double[] field_147428_e;
     double[] field_147425_f;

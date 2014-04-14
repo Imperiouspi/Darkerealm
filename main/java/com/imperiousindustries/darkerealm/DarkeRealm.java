@@ -37,13 +37,15 @@ public class DarkeRealm
 		DarkeBlocks.initBlocks();
 		DarkeItems.initItems();
 		DarkeEntities.registerEntities();
-		DarkeBiomes.initBiomes();
 		proxy.registerRenderers();
     }
     @EventHandler
     public void Init(FMLInitializationEvent event){
-    	DarkeRecipes.init();
+    	//register generation here
+    	DarkeGen.init();
+    	DarkeBiomes.initBiomes();
     	DimensionManager.registerProviderType(DarkeDimID, WorldProviderDarkeWorld.class, false);
     	DimensionManager.registerDimension(DarkeDimID, DarkeDimID);
+    	DarkeRecipes.init();
     }
 }

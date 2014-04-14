@@ -10,6 +10,6 @@ public class DarkeBiomes {
 	public static BiomeGenBase darkeForest;
 	
 	public static void initBiomes(){
-
+		darkeForest = new BiomeDarkeForest();
 	}
 }

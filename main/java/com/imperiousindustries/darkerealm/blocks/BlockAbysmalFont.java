@@ -39,11 +39,11 @@ public class BlockAbysmalFont extends BlockPortal {
                         player.timeUntilPortal = 10;
                         player.mcServer.getConfigurationManager().transferPlayerToDimension(player, -6, new DarkeTeleporter(mServer.worldServerForDimension(-6)));
                   }
-                  /*else
+                  else
                   {
                         player.timeUntilPortal = 10;
                         player.mcServer.getConfigurationManager().transferPlayerToDimension(player, 0, new DarkeTeleporter(mServer.worldServerForDimension(1)));
-                  }*/
+                  }
            }
     }
 

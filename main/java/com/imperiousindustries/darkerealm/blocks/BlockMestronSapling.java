@@ -27,12 +27,18 @@ public class BlockMestronSapling extends BlockSapling {
 
 	@Override
 	public void func_149878_d(World world, int x, int y, int z, Random rand) {
-		int choice = (int)(Math.random()*5);
-		switch(choice){
-			case 0: genFive(world, x, y, z); break;
-			case 1: genTwo(world, x, y, z); break;
-			case 3: genSix(world, x, y, z); break;
-			case 4: genEleven(world, x, y, z); break;
+		int choice = (int)(Math.random()*80);
+		if(choice >= 35 && choice <= 70){
+			genFive(world, x, y, z);
+		}
+		if(choice >= 70 && choice <= 90){
+			genEleven(world, x, y, z);
+		}
+		if(choice >= 0 && choice <= 35){
+			genSix(world, x, y, z);
+		}
+		if(choice >= 90 && choice <= 100){
+			genTwo(world, x, y, z);
 		}
 	}
 	
@@ -54,6 +60,73 @@ public class BlockMestronSapling extends BlockSapling {
     {
 		return blockIcon;
    }
+	
+	public boolean genHeight(int height, World world, int x, int y, int z){
+		if(height == 2){
+			genTwo(world, x, y, z);
+			return true;
+		}
+		if(height == 5){
+			genFive(world, x, y, z);
+			return true;
+		}
+		if(height == 6){
+			genSix(world, x, y, z);
+			return true;
+		}
+		if(height == 11){
+			genEleven(world, x, y, z);
+			return true;
+		}
+		return false;
+	}
+	//generate a tree from an algorithm
+	@Deprecated
+	public void genNotForced(World world, int x, int y, int z, Random rand){
+		int trunkHeight;
+		double added;
+		int[] leaves;
+		//trunk height
+		int chanceTall = rand.nextInt(100);
+		//int chanceTall = 100;
+		if(chanceTall >= 95){
+			//generate Tall tree
+			trunkHeight = rand.nextInt(30)+20;
+		}
+		else{
+			//generate Smaller tree
+			trunkHeight = rand.nextInt(8)+3;
+		}
+		trunkHeight = 50;
+		leaves = new int[trunkHeight];
+		
+		for(int i = 0; i < trunkHeight; i++){
+			added = trunkHeight*Math.sin(trunkHeight*i*i)/i;
+			leaves[i] = (int) added;
+		}
+		
+		//add tree to world
+		for(int i = 0; i < leaves.length; i++){
+			for(int j = 0; j <= leaves[i]; j++)
+				world.setBlock(x+j, y+i, z, DarkeBlocks.mestronleaves);
+		}
+		for(int i = 0; i < leaves.length; i++){
+			for(int j = 0; j <= leaves[i]; j++)
+				world.setBlock(x-j, y+i, z, DarkeBlocks.mestronleaves);
+		}
+		for(int i = 0; i < leaves.length; i++){
+			for(int j = 0; j <= leaves[i]; j++)
+				world.setBlock(x, y+i, z+j, DarkeBlocks.mestronleaves);
+		}
+		for(int i = 0; i < leaves.length; i++){
+			for(int j = 0; j <= leaves[i]; j++)
+				world.setBlock(x, y+i, z-j, DarkeBlocks.mestronleaves);
+		}
+		world.setBlock(x, y, z, DarkeBlocks.mestronlog);
+		for(int i = 0; i <= trunkHeight; i++){
+			world.setBlock(x, y+i, z, DarkeBlocks.mestronlog);
+		}
+	}
 	
 	//generate a tree five blocks high
 	public void genFive(World world, int x, int y, int z){

@@ -1,5 +1,6 @@
 package com.imperiousindustries.darkerealm.realm;
 
+import com.imperiousindustries.darkerealm.DarkeBiomes;
 import com.imperiousindustries.darkerealm.DarkeRealm;
 import com.imperiousindustries.darkerealm.realm.biomes.BiomeDarkeForest;
 
@@ -24,7 +25,7 @@ public class WorldProviderDarkeWorld extends WorldProvider{
      */
     public void registerWorldChunkManager()
     {
-        this.worldChunkMgr = new WorldChunkManagerHell(new BiomeDarkeForest(), 1.0F);
+        this.worldChunkMgr = new WorldChunkManagerHell(DarkeBiomes.darkeForest, 1.0F);
         this.dimensionId = DarkeRealm.DarkeDimID;
     }
 
