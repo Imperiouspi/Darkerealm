@@ -1,5 +1,7 @@
 package com.imperiousindustries.darkerealm.blocks;
 
+import com.imperiousindustries.darkerealm.DarkeRealm;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -14,6 +16,7 @@ public class BlockDarkeDirt extends Block {
 		setHardness(0.6F);
 		setStepSound(soundTypeGrass);
 		setHarvestLevel("shovel", 0);
+		setCreativeTab(DarkeRealm.darketab);
 	}
 	
 	@SideOnly(Side.CLIENT)

@@ -14,9 +14,6 @@ import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.Ev
 import java.util.List;
 import java.util.Random;
 
-import com.imperiousindustries.darkerealm.DarkeBiomes;
-import com.imperiousindustries.darkerealm.DarkeBlocks;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.entity.EnumCreatureType;
@@ -31,7 +28,6 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
 import net.minecraft.world.gen.MapGenRavine;
 import net.minecraft.world.gen.NoiseGenerator;
 import net.minecraft.world.gen.NoiseGeneratorOctaves;
@@ -46,6 +42,12 @@ import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
+
+import com.imperiousindustries.darkerealm.DarkeBiomes;
+import com.imperiousindustries.darkerealm.DarkeBlocks;
+import com.imperiousindustries.darkerealm.realm.gen.DarkeCaves;
+import com.imperiousindustries.darkerealm.realm.gen.DarkeLakes;
+
 import cpw.mods.fml.common.eventhandler.Event.Result;
 
 public class ChunkProviderDarkeWorld implements IChunkProvider
@@ -79,7 +81,7 @@ public class ChunkProviderDarkeWorld implements IChunkProvider
     private final double[] field_147434_q;
     private final float[] parabolicField;
     private double[] stoneNoise = new double[256];
-    private MapGenBase caveGenerator = new MapGenCaves();
+    private MapGenBase caveGenerator = new DarkeCaves();
     /**
      * Holds Stronghold Generator
      */
@@ -204,7 +206,7 @@ public class ChunkProviderDarkeWorld implements IChunkProvider
                             {
                                 if ((d15 += d16) > 0.0D)
                                 {
-                                    p_147424_3_[j3 += short1] = Blocks.stone;
+                                    p_147424_3_[j3 += short1] = DarkeBlocks.darkeStone;
                                 }
                                 else if (k2 * 8 + l2 < b0)
                                 {
@@ -452,12 +454,12 @@ public class ChunkProviderDarkeWorld implements IChunkProvider
         int i2;
 
         if (biomegenbase != BiomeGenBase.desert && biomegenbase != BiomeGenBase.desertHills && !flag && this.rand.nextInt(4) == 0
-            && TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE))
+            && TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAKE) && biomegenbase != DarkeBiomes.darkeForest)
         {
             k1 = k + this.rand.nextInt(16) + 8;
             l1 = this.rand.nextInt(256);
             i2 = l + this.rand.nextInt(16) + 8;
-            (new WorldGenLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
+            (new DarkeLakes(Blocks.water)).generate(this.worldObj, this.rand, k1, l1, i2);
         }
 
         if (TerrainGen.populate(par1IChunkProvider, worldObj, rand, par2, par3, flag, LAVA) && !flag && this.rand.nextInt(8) == 0)
@@ -468,7 +470,7 @@ public class ChunkProviderDarkeWorld implements IChunkProvider
 
             if (l1 < 63 || this.rand.nextInt(10) == 0)
             {
-                (new WorldGenLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
+                (new DarkeLakes(Blocks.lava)).generate(this.worldObj, this.rand, k1, l1, i2);
             }
         }
 

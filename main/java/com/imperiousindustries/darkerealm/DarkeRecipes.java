@@ -2,11 +2,12 @@ package com.imperiousindustries.darkerealm;
 
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
+import net.minecraftforge.oredict.ShapedOreRecipe;
 import cpw.mods.fml.common.registry.GameRegistry;
 
 public class DarkeRecipes {
 	public static void init(){
-		GameRegistry.addRecipe(new ItemStack(DarkeItems.duster), new Object[]{" FF", " FF", "S  ", 'F', new ItemStack(Items.feather), 'S', new ItemStack(Items.stick)});
+		GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(DarkeItems.duster), new Object[]{" FF", " FF", "S  ", 'F', new ItemStack(Items.feather), 'S', "stickWood"}));
 		GameRegistry.addRecipe(new ItemStack(DarkeBlocks.dustblock), new Object[]{"ddd","ddd","ddd", 'd', new ItemStack(DarkeBlocks.dust)});
 		GameRegistry.addRecipe(new ItemStack(DarkeBlocks.compresseddust), new Object[]{"ddd","ddd","ddd", 'd', new ItemStack(DarkeBlocks.dustblock)});
 		GameRegistry.addRecipe(new ItemStack(DarkeBlocks.compresseddust2), new Object[]{"ddd","ddd","ddd", 'd', new ItemStack(DarkeBlocks.compresseddust)});

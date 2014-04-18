@@ -8,7 +8,7 @@ import net.minecraft.block.material.Material;
 public class BlockMestronPlank extends Block {
 	public BlockMestronPlank(){
 		super(Material.wood);
-		setBlockName(BlockInfo.MESTRONLOG_NAME);
+		setBlockName(BlockInfo.MESTRONPLANK_NAME);
 		setHardness(1.0F);
 		setStepSound(Block.soundTypeStone);
 		setHarvestLevel("axe", 0);

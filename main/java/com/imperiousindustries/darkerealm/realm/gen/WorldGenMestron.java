@@ -2,6 +2,7 @@ package com.imperiousindustries.darkerealm.realm.gen;
 
 import java.util.Random;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenAbstractTree;
 
@@ -17,7 +18,7 @@ public class WorldGenMestron extends WorldGenAbstractTree {
 
 	@Override
 	public boolean generate(World world, Random random, int x, int y, int z) {
-		if(world.provider.dimensionId == -6){
+		if(world.provider.dimensionId == -6 && world.getBlock(x, y-1, z).equals(Blocks.dirt) || world.getBlock(x, y-1, z).equals(DarkeBlocks.darkedirt)){
 			int choice = (int)(Math.random()*80);
 			if(choice >= 35 && choice <= 70){
 				((BlockMestronSapling) DarkeBlocks.mestronsapling).genHeight(5, world, x, y, z);
