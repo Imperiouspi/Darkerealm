@@ -14,8 +14,10 @@ tile.mestronLeaves.name=Mestron Leaves
 tile.mestronsapling.name=Mestron Sapling
 tile.abysmalfont.name=Abysmal Font
 tile.darkedirt.name=Darke Dirt
+tile.jeweledobsidian.name=Jeweled Obsidian
 
 item.duster.name=Duster
 item.dustGem.name=Dust Gem
 
-entity.hermit.name=Hermit
+entity.Hermit.name=Hermit
+entity.Eagle.name=Eagle

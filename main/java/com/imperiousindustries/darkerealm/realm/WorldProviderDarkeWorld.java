@@ -23,6 +23,7 @@ public class WorldProviderDarkeWorld extends WorldProvider {
 	public void registerWorldChunkManager() {
 		this.worldChunkMgr = new WorldChunkManagerHell(DarkeBiomes.darkeForest,
 				1.0F);
+		//this.worldChunkMgr = new WorldChunkManagaerDarke();
 		this.dimensionId = DarkeRealm.DarkeDimID;
 	}
 

@@ -33,4 +33,7 @@ public class BlockInfo {
 	
 	public static String DARKEDIRT_NAME	= "darkedirt";
 	public static String DARKEDIRT_TEXTURE = "Darke Dirt";
+	
+	public static String JOBSIDIAN_NAME = "jeweledobsidian";
+	public static String JOBSIDIAN_TEXTURE = "JeweledObsidian";
 }
