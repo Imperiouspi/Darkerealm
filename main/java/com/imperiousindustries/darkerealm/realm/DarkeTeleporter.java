@@ -48,7 +48,7 @@ public class DarkeTeleporter extends Teleporter{
         else
         {
             //create font
-        	
+        	//base
         	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-5, (int)entity.posZ, Blocks.obsidian);
         	worldServerInstance.setBlock((int)entity.posX-1, (int)entity.posY-5, (int)entity.posZ, DarkeBlocks.jobsidian);
         	worldServerInstance.setBlock((int)entity.posX+1, (int)entity.posY-5, (int)entity.posZ, DarkeBlocks.jobsidian);
@@ -58,6 +58,25 @@ public class DarkeTeleporter extends Teleporter{
         	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-5, (int)entity.posZ+1, DarkeBlocks.jobsidian);
         	worldServerInstance.setBlock((int)entity.posX-1, (int)entity.posY-5, (int)entity.posZ-1, DarkeBlocks.jobsidian);
         	worldServerInstance.setBlock((int)entity.posX+1, (int)entity.posY-5, (int)entity.posZ+1, DarkeBlocks.jobsidian);
+        	//stem
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-4, (int)entity.posZ+1, Blocks.obsidian);
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-3, (int)entity.posZ+1, Blocks.obsidian);
+        	//cup base
+        	worldServerInstance.setBlock((int)entity.posX+1, (int)entity.posY-2, (int)entity.posZ, Blocks.obsidian);
+        	worldServerInstance.setBlock((int)entity.posX-1, (int)entity.posY-2, (int)entity.posZ, Blocks.obsidian);
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-2, (int)entity.posZ+1, Blocks.obsidian);
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-2, (int)entity.posZ-1, Blocks.obsidian);
+        	//up cup
+        	worldServerInstance.setBlock((int)entity.posX+2, (int)entity.posY, (int)entity.posZ, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX-2, (int)entity.posY, (int)entity.posZ, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY, (int)entity.posZ+2, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY, (int)entity.posZ-2, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX+1, (int)entity.posY, (int)entity.posZ+1, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX+1, (int)entity.posY, (int)entity.posZ-1, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX-1, (int)entity.posY, (int)entity.posZ+1, DarkeBlocks.jobsidian);
+        	worldServerInstance.setBlock((int)entity.posX-1, (int)entity.posY, (int)entity.posZ-1, DarkeBlocks.jobsidian);
+        	//portal
+        	worldServerInstance.setBlock((int)entity.posX, (int)entity.posY-1, (int)entity.posZ, DarkeBlocks.abysmalfont);
         }
     }
 

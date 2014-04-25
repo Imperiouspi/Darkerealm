@@ -1,9 +1,6 @@
 package com.imperiousindustries.darkerealm.realm.biomes;
 
-import java.awt.Color;
 import java.util.Random;
-
-import com.imperiousindustries.darkerealm.DarkeBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -12,10 +9,17 @@ import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 
+import com.imperiousindustries.darkerealm.DarkeBiomes;
+import com.imperiousindustries.darkerealm.DarkeBlocks;
+
 public abstract class BiomeDarkeBase extends BiomeGenBase{
 
+	protected static BiomeGenBase[] biomeList = DarkeBiomes.biomes;
+	
 	public BiomeDarkeBase(int par1) {
 		super(par1, true);
+		this.rootHeight = super.height_Default.rootHeight;
+		this.heightVariation = super.height_Default.variation;
 		this.fillerBlock = Blocks.dirt;
 		this.topBlock = DarkeBlocks.darkedirt;
 	}
@@ -26,6 +30,10 @@ public abstract class BiomeDarkeBase extends BiomeGenBase{
 	@Override
 	public BiomeDecorator getModdedBiomeDecorator(BiomeDecorator original){
 		return new DarkeDecorations();
+	}
+	
+	public static BiomeGenBase getBiome(int p_150568_0_){
+            return biomeList[p_150568_0_];
 	}
 	
 	@Override

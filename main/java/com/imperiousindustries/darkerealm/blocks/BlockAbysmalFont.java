@@ -41,6 +41,7 @@ public class BlockAbysmalFont extends Block {
                   {
                         player.timeUntilPortal = 10;
                         player.mcServer.getConfigurationManager().transferPlayerToDimension(player, -6, new DarkeTeleporter(mServer.worldServerForDimension(-6)));
+                        
                   }
                   else
                   {
@@ -49,5 +50,4 @@ public class BlockAbysmalFont extends Block {
                   }
            }
     }
-
 }
