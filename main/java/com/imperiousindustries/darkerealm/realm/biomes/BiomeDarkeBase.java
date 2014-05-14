@@ -22,6 +22,7 @@ public abstract class BiomeDarkeBase extends BiomeGenBase{
 		this.heightVariation = super.height_Default.variation;
 		this.fillerBlock = Blocks.dirt;
 		this.topBlock = DarkeBlocks.darkedirt;
+		this.rainfall = 0.1F;
 	}
 
 	@Override

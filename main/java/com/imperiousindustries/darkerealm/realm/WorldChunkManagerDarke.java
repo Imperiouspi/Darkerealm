@@ -83,7 +83,7 @@ public class WorldChunkManagerDarke extends WorldChunkManager {
 		int[] aint = this.myBiomeIndexLayer.getInts(par2, par3, par4, par5);
 
 		for (int i1 = 0; i1 < par4 * par5; ++i1) {
-			float f = (float) DarkeBiomes.biomes[aint[i1]].getFloatRainfall();
+			float f = (float) DarkeBiomes.biomes[aint[i1]-60].getFloatRainfall();
 
 			if (f > 1.0F) {
 				f = 1.0F;

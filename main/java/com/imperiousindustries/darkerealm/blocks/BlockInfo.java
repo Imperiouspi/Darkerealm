@@ -36,4 +36,8 @@ public class BlockInfo {
 	
 	public static String JOBSIDIAN_NAME = "jeweledobsidian";
 	public static String JOBSIDIAN_TEXTURE = "JeweledObsidian";
+	
+	public static String FROND_NAME = "Frond";
+	public static String FROND_TOP_TEXTURE = "FrondTop";
+	public static String FROND_BOTTOM_TEXTURE = "FrondBottom";
 }

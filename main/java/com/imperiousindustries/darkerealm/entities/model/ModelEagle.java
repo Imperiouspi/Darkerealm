@@ -23,7 +23,7 @@ public class ModelEagle extends ModelBase{
 	 private static final String __OBFID = "CL_00000900";
 	
 	public ModelEagle(){
-		int height = 10;
+		int height = 20;
 		Head = new ModelRenderer(this, 0, 0);
 		Head.addBox(-4F, -2F, -4F, 4, 4, 4);
 		Head.setRotationPoint(0.0F, -2.0F + height, 0.0F);
@@ -42,6 +42,11 @@ public class ModelEagle extends ModelBase{
 		BeakPoint = new ModelRenderer(this, 6, 8);
 		BeakPoint.addBox(-3F, -1F, -7F, 2, 1, 1);
 		BeakPoint.setRotationPoint(0.0F, 0.2F + height, 0.5F);
+		
+		Body = new ModelRenderer(this, 0, 11);
+		Body.rotateAngleY = 0.5F;
+		Body.addBox(-2F, 10F, -2F, 4, 7, 4);
+		Body.setRotationPoint(0.0F, 0.0F, 0.0F);
 	}
 	
 	@Override
@@ -51,5 +56,6 @@ public class ModelEagle extends ModelBase{
 		BeakMiddleBottom.render(par7);
 		BeakMiddleTop.render(par7);
 		BeakPoint.render(par7);
+		Body.renderWithRotation(0.1F);
 	}
 }

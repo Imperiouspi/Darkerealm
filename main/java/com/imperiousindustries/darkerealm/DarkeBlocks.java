@@ -7,6 +7,7 @@ import com.imperiousindustries.darkerealm.blocks.BlockDarkeDirt;
 import com.imperiousindustries.darkerealm.blocks.BlockDarkeStone;
 import com.imperiousindustries.darkerealm.blocks.BlockDust;
 import com.imperiousindustries.darkerealm.blocks.BlockDustBlock;
+import com.imperiousindustries.darkerealm.blocks.BlockFrond;
 import com.imperiousindustries.darkerealm.blocks.BlockInfo;
 import com.imperiousindustries.darkerealm.blocks.BlockJeweledObsidian;
 import com.imperiousindustries.darkerealm.blocks.BlockMestronLeaves;
@@ -38,6 +39,7 @@ public class DarkeBlocks {
 	public static Block abysmalfont;
 	public static Block darkedirt;
 	public static Block jobsidian;
+	public static Block frond;
 	
 	public static void initBlocks(){
 		darkeStone = new BlockDarkeStone();
@@ -70,5 +72,7 @@ public class DarkeBlocks {
 		GameRegistry.registerBlock(darkedirt, BlockInfo.DARKEDIRT_NAME);
 		jobsidian = new BlockJeweledObsidian();
 		GameRegistry.registerBlock(jobsidian, BlockInfo.JOBSIDIAN_NAME);
+		frond = new BlockFrond();
+		GameRegistry.registerBlock(frond, BlockInfo.FROND_NAME);
 	}
 }
