@@ -3,6 +3,7 @@ package com.imperiousindustries.darkerealm.blocks;
 import java.util.List;
 import java.util.Random;
 
+import sun.tools.tree.ReturnStatement;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockDoublePlant;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -20,27 +21,43 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 
+import com.imperiousindustries.darkerealm.DarkeBlocks;
 import com.imperiousindustries.darkerealm.DarkeRealm;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFrond extends BlockDoublePlant{
-	public BlockFrond(){
+public class DarkeDoublePlant extends BlockDoublePlant{
+	public static final String[] field_149892_a = new String[] {"frond"};
+    @SideOnly(Side.CLIENT)
+    private IIcon[] doublePlantBottomIcons;
+    @SideOnly(Side.CLIENT)
+    private IIcon[] doublePlantTopIcons;
+    @SideOnly(Side.CLIENT)
+    public IIcon[] sunflowerIcons;
+    private static final String __OBFID = "CL_00000231";
+    
+	public DarkeDoublePlant(){
 		super();
-		setBlockName(BlockInfo.FROND_NAME);
-		setCreativeTab(DarkeRealm.darketab);
 	}
-	
-	/**
+
+    /**
      * The type of render function that is called for this block
      */
     public int getRenderType()
     {
-        return 1;
+        return -1;
     }
-    
-	 public int func_149885_e(IBlockAccess p_149885_1_, int p_149885_2_, int p_149885_3_, int p_149885_4_)
+
+    /**
+     * Updates the blocks bounds based on its current state. Args: world, x, y, z
+     */
+    public void setBlockBoundsBasedOnState(IBlockAccess p_149719_1_, int p_149719_2_, int p_149719_3_, int p_149719_4_)
+    {
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
+    }
+
+    public int func_149885_e(IBlockAccess p_149885_1_, int p_149885_2_, int p_149885_3_, int p_149885_4_)
     {
         int l = p_149885_1_.getBlockMetadata(p_149885_2_, p_149885_3_, p_149885_4_);
         return !func_149887_c(l) ? l & 7 : p_149885_1_.getBlockMetadata(p_149885_2_, p_149885_3_ - 1, p_149885_4_) & 7;
@@ -51,7 +68,7 @@ public class BlockFrond extends BlockDoublePlant{
      */
     public boolean canPlaceBlockAt(World p_149742_1_, int p_149742_2_, int p_149742_3_, int p_149742_4_)
     {
-        return super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) && p_149742_1_.isAirBlock(p_149742_2_, p_149742_3_ + 1, p_149742_4_);
+        return (p_149742_1_.getBlock(p_149742_2_, p_149742_3_, p_149742_4_).equals(DarkeBlocks.darkedirt)) || super.canPlaceBlockAt(p_149742_1_, p_149742_2_, p_149742_3_, p_149742_4_) && p_149742_1_.isAirBlock(p_149742_2_, p_149742_3_ + 1, p_149742_4_);
     }
 
     /**
@@ -89,7 +106,15 @@ public class BlockFrond extends BlockDoublePlant{
 
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_)
     {
-        return Item.getItemFromBlock(this);
+        if (func_149887_c(p_149650_1_))
+        {
+            return null;
+        }
+        else
+        {
+            int k = func_149890_d(p_149650_1_);
+            return k != 3 && k != 2 ? Item.getItemFromBlock(this) : null;
+        }
     }
 
     /**
@@ -97,12 +122,12 @@ public class BlockFrond extends BlockDoublePlant{
      */
     public int damageDropped(int p_149692_1_)
     {
-        return 1;
+        return func_149887_c(p_149692_1_) ? 0 : p_149692_1_ & 7;
     }
 
     public static boolean func_149887_c(int p_149887_0_)
     {
-        return (p_149887_0_ & 8) != 0;
+       return (p_149887_0_ & 8) != 0;
     }
 
     public static int func_149890_d(int p_149890_0_)
@@ -116,13 +141,13 @@ public class BlockFrond extends BlockDoublePlant{
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int p_149691_1_, int p_149691_2_)
     {
-        return topIcon;
+        return func_149887_c(p_149691_2_) ? this.doublePlantBottomIcons[0] : this.doublePlantBottomIcons[p_149691_2_ & 7];
     }
 
     @SideOnly(Side.CLIENT)
     public IIcon func_149888_a(boolean p_149888_1_, int p_149888_2_)
     {
-        return bottomIcon;
+        return p_149888_1_ ? this.doublePlantTopIcons[p_149888_2_] : this.doublePlantBottomIcons[p_149888_2_];
     }
 
     /**
@@ -132,14 +157,13 @@ public class BlockFrond extends BlockDoublePlant{
     @SideOnly(Side.CLIENT)
     public int colorMultiplier(IBlockAccess p_149720_1_, int p_149720_2_, int p_149720_3_, int p_149720_4_)
     {
-        return 16777215;
+        int l = this.func_149885_e(p_149720_1_, p_149720_2_, p_149720_3_, p_149720_4_);
+        return l != 2 && l != 3 ? 16777215 : p_149720_1_.getBiomeGenForCoords(p_149720_2_, p_149720_4_).getBiomeGrassColor(p_149720_2_, p_149720_3_, p_149720_4_);
     }
 
     public void func_149889_c(World p_149889_1_, int p_149889_2_, int p_149889_3_, int p_149889_4_, int p_149889_5_, int p_149889_6_)
     {
-    	setBlockTextureName("darkerealm:"+BlockInfo.FROND_BOTTOM_TEXTURE);
         p_149889_1_.setBlock(p_149889_2_, p_149889_3_, p_149889_4_, this, p_149889_5_, p_149889_6_);
-        setBlockTextureName("darkerealm:"+BlockInfo.FROND_TOP_TEXTURE);
         p_149889_1_.setBlock(p_149889_2_, p_149889_3_ + 1, p_149889_4_, this, 8, p_149889_6_);
     }
 
@@ -208,19 +232,42 @@ public class BlockFrond extends BlockDoublePlant{
 
     private boolean func_149886_b(World p_149886_1_, int p_149886_2_, int p_149886_3_, int p_149886_4_, int p_149886_5_, EntityPlayer p_149886_6_)
     {
-        this.dropBlockAsItem(p_149886_1_, p_149886_3_, p_149886_4_, p_149886_5_, new ItemStack(this, 1, 0));
-		return true;
+        int i1 = func_149890_d(p_149886_5_);
+
+        if (i1 != 3 && i1 != 2)
+        {
+            return false;
+        }
+        else
+        {
+            p_149886_6_.addStat(StatList.mineBlockStatArray[Block.getIdFromBlock(this)], 1);
+            byte b0 = 1;
+
+            if (i1 == 3)
+            {
+                b0 = 2;
+            }
+
+            this.dropBlockAsItem(p_149886_1_, p_149886_2_, p_149886_3_, p_149886_4_, new ItemStack(Blocks.tallgrass, 2, b0));
+            return true;
+        }
     }
 
     @SideOnly(Side.CLIENT)
-    IIcon bottomIcon;
-    @SideOnly(Side.CLIENT)
-    IIcon topIcon;
-    
-    @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister p_149651_1_){
-    	this.topIcon = p_149651_1_.registerIcon("darkerealm:"+BlockInfo.FROND_BOTTOM_TEXTURE);
-        this.bottomIcon = p_149651_1_.registerIcon("darkerealm:"+BlockInfo.FROND_TOP_TEXTURE);
+    public void registerBlockIcons(IIconRegister p_149651_1_)
+    {
+        this.doublePlantBottomIcons = new IIcon[field_149892_a.length];
+        this.doublePlantTopIcons = new IIcon[field_149892_a.length];
+
+        for (int i = 0; i < this.doublePlantBottomIcons.length; ++i)
+        {
+            this.doublePlantBottomIcons[i] = p_149651_1_.registerIcon("darkerealm:double_plant_" + field_149892_a[i] + "_bottom");
+            this.doublePlantTopIcons[i] = p_149651_1_.registerIcon("darkerealm:double_plant_" + field_149892_a[i] + "_top");
+        }
+
+        this.sunflowerIcons = new IIcon[2];
+        this.sunflowerIcons[0] = p_149651_1_.registerIcon("darkerealm:double_plant_frond_bottom");
+        this.sunflowerIcons[1] = p_149651_1_.registerIcon("darkerealm:double_plant_frond_bottom");
     }
 
     /**
@@ -229,7 +276,10 @@ public class BlockFrond extends BlockDoublePlant{
     @SideOnly(Side.CLIENT)
     public void getSubBlocks(Item p_149666_1_, CreativeTabs p_149666_2_, List p_149666_3_)
     {
-            p_149666_3_.add(new ItemStack(this, 1, 0));
+        for (int i = 0; i < this.doublePlantBottomIcons.length; ++i)
+        {
+            p_149666_3_.add(new ItemStack(p_149666_1_, 1, i));
+        }
     }
 
     /**
@@ -237,12 +287,14 @@ public class BlockFrond extends BlockDoublePlant{
      */
     public int getDamageValue(World p_149643_1_, int p_149643_2_, int p_149643_3_, int p_149643_4_)
     {
-        return 0;
+        int l = p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_, p_149643_4_);
+        return func_149887_c(l) ? func_149890_d(p_149643_1_.getBlockMetadata(p_149643_2_, p_149643_3_ - 1, p_149643_4_)) : func_149890_d(l);
     }
 
     public boolean func_149851_a(World p_149851_1_, int p_149851_2_, int p_149851_3_, int p_149851_4_, boolean p_149851_5_)
     {
-        return false;
+        int l = this.func_149885_e(p_149851_1_, p_149851_2_, p_149851_3_, p_149851_4_);
+        return l != 2 && l != 3;
     }
 
     public boolean func_149852_a(World p_149852_1_, Random p_149852_2_, int p_149852_3_, int p_149852_4_, int p_149852_5_)
@@ -253,6 +305,6 @@ public class BlockFrond extends BlockDoublePlant{
     public void func_149853_b(World p_149853_1_, Random p_149853_2_, int p_149853_3_, int p_149853_4_, int p_149853_5_)
     {
         int l = this.func_149885_e(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_);
-        this.dropBlockAsItem(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_, new ItemStack(this, 1, 0));
+        this.dropBlockAsItem(p_149853_1_, p_149853_3_, p_149853_4_, p_149853_5_, new ItemStack(this, 1, l));
     }
 }
