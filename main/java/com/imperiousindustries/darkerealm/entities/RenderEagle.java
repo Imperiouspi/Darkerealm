@@ -17,5 +17,4 @@ public class RenderEagle extends RenderLiving{
 	protected ResourceLocation getEntityTexture(Entity var1) {
 		return loc;
 	}
-
 }

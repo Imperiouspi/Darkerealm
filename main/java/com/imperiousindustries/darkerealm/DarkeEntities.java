@@ -4,6 +4,7 @@ import java.util.Random;
 
 import net.minecraft.entity.EntityList;
 
+import com.imperiousindustries.darkerealm.entities.EntityDragon;
 import com.imperiousindustries.darkerealm.entities.EntityEagle;
 import com.imperiousindustries.darkerealm.entities.EntityHermit;
 import com.imperiousindustries.darkerealm.entities.EntityInfo;
@@ -15,6 +16,7 @@ public class DarkeEntities {
 	public static void registerEntities(){
 		registerEntity(EntityHermit.class, EntityInfo.HERMIT_NAME, 5330966, 6848619);
 		registerEntity(EntityEagle.class, EntityInfo.EAGLE_NAME, 8934144, 14594410);
+		registerEntity(EntityDragon.class, EntityInfo.DRAGON_NAME, 2775577, 1519119);
 	}
 	
 	public static void registerEntity(Class entityClass, String name, int color1, int color2)

@@ -7,13 +7,13 @@ import com.imperiousindustries.darkerealm.blocks.BlockDarkeDirt;
 import com.imperiousindustries.darkerealm.blocks.BlockDarkeStone;
 import com.imperiousindustries.darkerealm.blocks.BlockDust;
 import com.imperiousindustries.darkerealm.blocks.BlockDustBlock;
-import com.imperiousindustries.darkerealm.blocks.BlockFrond;
 import com.imperiousindustries.darkerealm.blocks.BlockInfo;
 import com.imperiousindustries.darkerealm.blocks.BlockJeweledObsidian;
 import com.imperiousindustries.darkerealm.blocks.BlockMestronLeaves;
 import com.imperiousindustries.darkerealm.blocks.BlockMestronLog;
 import com.imperiousindustries.darkerealm.blocks.BlockMestronPlank;
 import com.imperiousindustries.darkerealm.blocks.BlockMestronSapling;
+import com.imperiousindustries.darkerealm.blocks.DarkeDoublePlant;
 import com.imperiousindustries.darkerealm.blocks.dustblocks.BlockDustBlockCompressed;
 import com.imperiousindustries.darkerealm.blocks.dustblocks.BlockDustBlockDouble;
 import com.imperiousindustries.darkerealm.blocks.dustblocks.BlockDustBlockPentuple;
@@ -72,7 +72,9 @@ public class DarkeBlocks {
 		GameRegistry.registerBlock(darkedirt, BlockInfo.DARKEDIRT_NAME);
 		jobsidian = new BlockJeweledObsidian();
 		GameRegistry.registerBlock(jobsidian, BlockInfo.JOBSIDIAN_NAME);
-		frond = new BlockFrond();
+		/*frond = new BlockFrond();
+		GameRegistry.registerBlock(frond, BlockInfo.FROND_NAME);*/
+		frond = new DarkeDoublePlant();
 		GameRegistry.registerBlock(frond, BlockInfo.FROND_NAME);
 	}
 }

@@ -3,7 +3,7 @@ package com.imperiousindustries.darkerealm;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.DimensionManager;
 
-import com.imperiousindustries.darkerealm.proxy.CommonProxy;
+import com.imperiousindustries.darkerealm.proxy.ClientProxy;
 import com.imperiousindustries.darkerealm.realm.WorldProviderDarkeWorld;
 
 import cpw.mods.fml.common.Mod;
@@ -19,7 +19,7 @@ public class DarkeRealm
 {
 	public static final String MODID = "darkerealm";
     public static final String VERSION = "0.1";
-    public static final String name = "darkerealm";
+    public static final String NAME = "darkerealm";
     
     public static final int DarkeDimID = -6;
         
@@ -27,7 +27,7 @@ public class DarkeRealm
     public static DarkeRealm instance;
     
     @SidedProxy(clientSide="com.imperiousindustries.darkerealm.proxy.ClientProxy", serverSide="com.imperiousindustries.darkerealm.proxy.CommonProxy")
-    public static CommonProxy proxy;
+    public static ClientProxy proxy;
 
     public static CreativeTabs darketab = new DarkeTab();
     @EventHandler
